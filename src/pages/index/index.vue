@@ -10,13 +10,6 @@
 		<img src="../../assets/images/48/Message@2x.png" class="img_massage" @click="go_Page('news')">
 
 		<div class="content" >
-			<div class="notice-bar" v-show="isShowNoticeBar">
-				&nbsp;&nbsp;&nbsp;&nbsp;客户<span class="theme_color">王光明</span>进入名单池中，前往
-				<div class="btn-group">
-				  <span class="rob" @click="go('index2')">抢单</span>
-				  <span class="close" @click="closeNotice" >X</span>
-				</div>
-			</div>
 			<van-swipe :autoplay="3000" indicator-color="white" @change="onBannerChange">
 				<van-swipe-item><img src="../../assets/images/other/banner.png" alt="" class="banner"></van-swipe-item>
 				<van-swipe-item><img src="../../assets/images/other/banner3.png" alt="" class="banner"></van-swipe-item>
@@ -142,7 +135,7 @@
 		//基础数据存放处
 		data (){
 			return {
-				title : '惠助你',
+				title : '找我聊',
 				current: 0,
 				isShowNoticeBar:true
 			}
@@ -710,24 +703,6 @@
 				confirmButtonText:'查看',
 				confirmButtonColor:'#4c62e7'
 			})
-
-			var textArray = [
-				'您名下<span style="color:#4c62e7">8</span>个客户进入商机池<br>请点击查看',
-				'您已抢单客户<span style="color:#4c62e7">王川冰</span>产品额度<br>发生变化，请点击查看',
-				'您已抢单客户<span style="color:#4c62e7">白小飞</span>商机已失效<br>请点击查看',
-
-			];
-			if(Math.floor(Math.random()*10)%8 == 7){
-
-				Dialog.confirm({
-				  title: '最新消息',
-				  message: textArray[Math.floor(Math.random()*10)%3]
-				}).then(() => {
-				  // on confirm
-				}).catch(() => {
-				  // on cancel
-				});
-			}
 
 		},
 

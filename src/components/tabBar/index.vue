@@ -5,7 +5,7 @@
        replace
        :to="icon.route"
        >
-        <span v-show="index!=0">{{icon.name}}</span>
+        <span >{{icon.name}}</span><!-- v-show="index!=0" -->
         <img
         slot="icon"
         slot-scope="props"
@@ -40,25 +40,25 @@ import icon5_1 from '../../../static/5-1.png'
         {
         normal: icon1,
         active: icon1,
-        name : 'home',
+        name : '首页',
         route : '/index'
         },
         {
         normal: icon2,
         active: icon2_1,
-        name : '商机',
+        name : '关注',
         route : '/index2'
         },
         {
         normal: icon3,
         active: icon3_1,
-        name : '贷款',
+        name : '发布需求',
         route : '/index3'
         },
         {
         normal: icon4,
         active: icon4_1,
-        name : '惠点通',
+        name : '消息',
         route : '/index4'
         },
         {
@@ -97,8 +97,8 @@ import icon5_1 from '../../../static/5-1.png'
 
 <style lang="scss" scoped>
 // scoped 表示私有样式
-  img.big{
+  /* img.big{
     width: 32px;
     height: 32px;
-  }
+  } */
 </style>
