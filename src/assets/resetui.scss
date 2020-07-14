@@ -1,0 +1,42 @@
+.businessData{
+	.level_conainter{
+		.van-grid-item__content{
+
+			margin: 12px 0px;
+			padding: 0px;
+			border-right: 1px solid rgb(127,127,127);
+			height: 20px;;
+		}
+	}
+}
+
+.addTask{
+	.van-field{
+		.van-field__label{
+			padding-top: 9px;
+		}
+		.van-field__body{
+			border: 1px solid #999999;
+			border-radius: 40px;
+			height: 40px;
+			padding-left: 12px;
+			padding-right: 12px;
+		}
+	}
+}
+
+.collectOperation{
+	.progressBar{
+		.progress{
+			background-color: #999999;
+			display: inline-block;
+			width: 33%;
+			height: 2px;
+			margin: 7px 0px;
+
+		}
+		.step-text-pan{
+			width: 33%;
+		}
+	}
+}
