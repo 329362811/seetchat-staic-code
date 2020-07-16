@@ -53,6 +53,7 @@
 					<div class="vanDiv-img">
 						<van-image radius="5px" class="vanImage" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
 						<div class="name-title">妲己nn</div>
+						<div class="name-title-right">1.6KM</div>
 						<div class="name-vlog">一个来自江湖的大佬</div>
 					</div>
 					<div class="vanDiv-img">
@@ -114,6 +115,17 @@
 		//数据预加载
 		created (){
 			var jsonStr = sessionStorage.getItem('userinfo');
+
+			Dialog.confirm({
+				confirmButtonText:'去完善',
+				message: '请您完善资料<br />会帮您赢得更多青睐～',
+			})
+			.then(() => {
+				// on confirm
+			})
+			.catch(() => {
+				// on cancel
+			});
 		},
 
 		//网页加载完成
@@ -212,7 +224,12 @@
 						margin-left 10px
 						position absolute
 						bottom 25px
-						font-size 13px
+						font-size 14px
+					.name-title-right
+						position absolute
+						bottom 25px
+						right 10px
+						font-size: 12px;
 					.name-vlog
 						margin-left 10px
 						position absolute
