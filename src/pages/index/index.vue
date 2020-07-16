@@ -1,16 +1,91 @@
 <template>
 
-	<div class="main">
+	<div class="main chat-container">
 
 		<!--头部-->
 		<van-nav-bar :title='title' fixed />
 
 		<div class="content" >
 			<van-icon class="search-icon" name="search" />
-			<van-tabs line-width="10px" color="#000000" v-model="active" animated>
+			<van-tabs class="vanTabs" line-width="10px" color="#000000" v-model="active" animated>
 				<van-tab title="最新求聊">最新求聊</van-tab>
-				<van-tab title="人气榜单">人气榜单</van-tab>
-				<van-tab title="同城">同城</van-tab>
+				<van-tab class="tabs-2" title="人气榜单">
+					<van-cell class="vanCell-33" title="女" is-link arrow-direction="down" value="" />
+					<van-cell class="vanCell-33" title="单量" is-link arrow-direction="down" value="" />
+					<van-cell class="vanCell-33" title="深圳" is-link arrow-direction="down" value="" />
+					<div class="vanDiv-img">
+						<van-image radius="5px" class="vanImage" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+						<div class="name-title">妲己nn</div>
+						<div class="name-vlog">一个来自江湖的大佬</div>
+					</div>
+					<div class="vanDiv-img">
+						<van-image radius="5px" class="vanImage" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+						<div class="name-title">妲己nn</div>
+						<div class="name-vlog">一个来自江湖的大佬</div>
+					</div>
+					<div class="vanDiv-img">
+						<van-image radius="5px" class="vanImage" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+						<div class="name-title">妲己nn</div>
+						<div class="name-vlog">一个来自江湖的大佬</div>
+					</div>
+					<div class="vanDiv-img">
+						<van-image radius="5px" class="vanImage" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+						<div class="name-title">妲己nn</div>
+						<div class="name-vlog">一个来自江湖的大佬</div>
+					</div>
+					<div class="vanDiv-img">
+						<van-image radius="5px" class="vanImage" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+						<div class="name-title">妲己nn</div>
+						<div class="name-vlog">一个来自江湖的大佬</div>
+					</div>
+					<div class="vanDiv-img">
+						<van-image radius="5px" class="vanImage" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+						<div class="name-title">妲己nn</div>
+						<div class="name-vlog">一个来自江湖的大佬</div>
+					</div>
+					<div class="vanDiv-img">
+						<van-image radius="5px" class="vanImage" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+						<div class="name-title">妲己nn</div>
+						<div class="name-vlog">一个来自江湖的大佬</div>
+					</div>
+				</van-tab>
+				<van-tab class="tabs-3" title="同城">
+					<div class="vanDiv-img">
+						<van-image radius="5px" class="vanImage" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+						<div class="name-title">妲己nn</div>
+						<div class="name-vlog">一个来自江湖的大佬</div>
+					</div>
+					<div class="vanDiv-img">
+						<van-image radius="5px" class="vanImage" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+						<div class="name-title">妲己nn</div>
+						<div class="name-vlog">一个来自江湖的大佬</div>
+					</div>
+					<div class="vanDiv-img">
+						<van-image radius="5px" class="vanImage" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+						<div class="name-title">妲己nn</div>
+						<div class="name-vlog">一个来自江湖的大佬</div>
+					</div>
+					<div class="vanDiv-img">
+						<van-image radius="5px" class="vanImage" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+						<div class="name-title">妲己nn</div>
+						<div class="name-vlog">一个来自江湖的大佬</div>
+					</div>
+					<div class="vanDiv-img">
+						<van-image radius="5px" class="vanImage" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+						<div class="name-title">妲己nn</div>
+						<div class="name-vlog">一个来自江湖的大佬</div>
+					</div>
+					<div class="vanDiv-img">
+						<van-image radius="5px" class="vanImage" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+						<div class="name-title">妲己nn</div>
+						<div class="name-vlog">一个来自江湖的大佬</div>
+					</div>
+					<div class="vanDiv-img">
+						<van-image radius="5px" class="vanImage" fit="cover" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+						<div class="name-title">妲己nn</div>
+						<div class="name-vlog">一个来自江湖的大佬</div>
+					</div>
+				</van-tab>
 			</van-tabs>
 		</div>
 		<!--tabbar-->
@@ -76,7 +151,7 @@
 <style>
 .van-tab{font-size: 13px;}
 .van-tab--active {
-    font-size:22px;
+    font-size:21px;
 }
 .van-tabs__nav--line{
 	width: 75vw;
@@ -88,9 +163,58 @@
 .search-icon{
 	position: fixed;
     top: 46px;
-    right: 0;
-    width: 25vw;
-	text-align: center;
+    right: 5vw;
+    width: 20vw;
+	text-align: right;
     line-height: 45px;
 }
+</style>
+<style lang="stylus" scoped>
+.chat-container
+	font-family PingFangSC-Medium
+	.content
+		.vanTabs
+			.tabs-2
+				.vanCell-33
+					width 33%
+					float left
+				.vanDiv-img
+					margin 12px 0 0 4vw
+					width 44vw
+					float left
+					position relative
+					font-size 12px
+					color #ffffff
+					.vanImage
+						width 100%
+						height 12rem
+					.name-title
+						margin-left 10px
+						position absolute
+						bottom 25px
+						font-size 13px
+					.name-vlog
+						margin-left 10px
+						position absolute
+						bottom 10px
+			.tabs-3
+				.vanDiv-img
+					margin 12px 0 0 4vw
+					width 44vw
+					float left
+					position relative
+					font-size 12px
+					color #ffffff
+					.vanImage
+						width 100%
+						height 12rem
+					.name-title
+						margin-left 10px
+						position absolute
+						bottom 25px
+						font-size 13px
+					.name-vlog
+						margin-left 10px
+						position absolute
+						bottom 10px
 </style>
