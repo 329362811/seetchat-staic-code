@@ -1,5 +1,5 @@
 <template>
-
+    <!--个人中心页面'-->
     <div class="container">
         <div class="woDe">
             我的个人中心
@@ -10,33 +10,33 @@
                     <van-image round class="touXiang" src="https://img.yzcdn.cn/vant/cat.jpeg" />
                 </van-col>
                 <van-col span="16">
-                    <txt class="niCheng">零度</txt>
-                    <txt class="idHao">ID号：12151463674</txt>
+                    <p class="niCheng">零度</p>
+                    <div class="idHao">ID号：12151463674</div>
                 </van-col>
                 <van-col span="3">
-                    <van-icon class="jianTou" name="arrow" />
+                    <van-icon @click="bianJiBut" class="jianTou" name="arrow" />
                 </van-col>
             </van-row>
         </div>
         <div class="caiFuKa">
             <van-row class="caiFuColumnOne" gutter="24">
                 <van-col span="24">
-                    <txt class="oneLeft">我的明细</txt>
-                    <a href="#" class="oneRight" style="float:right">明细</a>
+                    <div class="oneLeft">我的明细</div>
+                    <a href="#" class="oneRight" @click="mingXiBut" style="float:right">明细</a>
                 </van-col>
                 <van-col span="20">
-                    <txt class="oneLeftTwo">24小时后可提现</txt>
+                    <div class="oneLeftTwo">24小时后可提现</div>
                 </van-col>
             </van-row>
             <van-row class="caiFuColumnTwo" gutter="24">
-                <txt class="twoLeft">6100</txt>
-                <txt class="twoRight" style="float:right">
-                    <van-button plain round type="primary" class="twoRightBut">提现</van-button>
-                </txt>
+                <div class="twoLeft">6100</div>
+                <div class="twoRight" style="float:right">
+                    <van-button plain round type="primary" class="twoRightBut" @click="tiXian">提现</van-button>
+                </div>
             </van-row>
         </div>
         <div class="gongNengKa">
-            <a href="#"> 
+            <a href="#" @click="xuQiuBut"> 
                 <van-row class="gongNengLan" gutter="24">
                     <div class="gongNengLanLeft"><van-icon name="wap-nav" size="28" color="#1DE7A7" /></div>
                     <div class="gongNengLanRight">我的需求</div>
@@ -87,6 +87,22 @@
 
         //声明方法
         methods : {
+            //编辑资料箭头
+            bianJiBut: function(){
+                this.$router.push('/personalData');
+            },
+            //账户明细按钮
+            mingXiBut: function(){
+                this.$router.push('/accountDetails');
+            },
+            //提现按钮
+            tiXian: function(){
+                this.$router.push('/withdrawDeposit');
+            },
+            //我的需求跳转
+            xuQiuBut: function(){
+                this.$router.push('/myNeed');
+            },
             //客服咨询是否拨打电话
             keFuBut: function(){
                 Dialog.confirm(
@@ -103,6 +119,7 @@
                     }
                 );
             }
+            
            
 
         },
@@ -153,6 +170,7 @@
             padding:15px 15px 0 20px
             border-radius:15px
             box-shadow:0px 0px 3px 3px rgba(0,0,0,0.2)
+
             // background: url(https://img.yzcdn.cn/vant/cat.jpeg) repeat-x center
             .caiFuColumnOne
                 line-height:24px
@@ -164,7 +182,7 @@
                     font-size:14px
                 .oneLeftTwo
                     float:left
-                    font-size:14px
+                    font-size:13px
                     margin-left:0px
             .caiFuColumnTwo
                 margin-top:10px

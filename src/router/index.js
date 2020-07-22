@@ -30,6 +30,7 @@ export default new Router({
          title: '关注'
         },
       },
+      
 
       {
         name: 'index3',
@@ -56,7 +57,41 @@ export default new Router({
         meta: {
          title: '我的'
         },
-      }
+      },
+      {
+        name: 'personalData',
+        path: '/personalData',
+        component:  () => import('@/pages/personalData'),
+        meta: {
+         title: '编辑资料'
+        },
+      },
+      {
+        name: 'withdrawDeposit',
+        path: '/withdrawDeposit',
+        component:  () => import('@/pages/withdrawDeposit'),
+        meta: {
+         title: '提现'
+        },
+      },
+      {
+        name: 'myNeed',
+        path: '/myNeed',
+        component:  () => import('@/pages/myNeed'),
+        meta: {
+         title: '我的需求'
+        },
+      },
+      {
+        name: 'accountDetails',
+        path: '/accountDetails',
+        component:  () => import('@/pages/accountDetails'),
+        meta: {
+         title: '账户明细'
+        },
+      },
+
+
 		
     ]
   })
