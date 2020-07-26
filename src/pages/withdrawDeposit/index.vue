@@ -7,8 +7,8 @@
                 <van-col span="8">提现</van-col>
             </van-row>
         </div>
-        
-        <van-form @submit="onSubmit">
+        <!--@submit="onSubmit"-->
+        <van-form >
             <van-field v-model="shouKuanRen"  style="margin-top:15px"  name="收款人" label="收款人" placeholder="请输入收款人"
                 :rules="[{ required: true, message: '请输入收款人姓名' }]"/>
             <van-field  v-model="shouKuanHao" name="收款账号" label="收款账号" placeholder="请输入卡号"
@@ -17,13 +17,13 @@
             <div class="moneyKa">
                 <div>提现金额</div>
                 <!-- 允许输入数字，调起带符号的纯数字键盘 -->
-                <van-field class="moneyLie" v-model="money" placeholder="请输入金额" label-width="26" center="true"
+                <van-field class="moneyLie" v-model="money" placeholder="请输入金额" label-width="22"
                    type="number" label="￥" />
                 <div class="fenGeXian"></div>
                 <div>可提现￥570</div>
             </div>
             <div style="margin: 16px;"> 
-                <van-button round block type="info" native-type="submit">
+                <van-button class="tiJiaoBut" round block type="info" native-type="submit">
                     提交
                 </van-button>
             </div>
@@ -97,13 +97,13 @@
             .tuPiao
                 margin-top:3px
         .moneyKa
-            height:200px;
             width:100vw
             background-color:white
             margin-top:15px
             padding:15px
             font-size:14px
             .moneyLie
+                line-height:40px
                 font-size:30px
                 margin-top:20px
                 margin-bottom:0px
@@ -114,5 +114,8 @@
                 margin-right:30px
                 margin-bottom:10px
                 border-bottom:2px solid #F9F9FB
+        .tiJiaoBut 
+            border:0px solid
+            background: -webkit-gradient(linear, left top, right bottom, color-stop(10%,#1DE7A7), color-stop(80%,#22D3F5))
 
 </style>

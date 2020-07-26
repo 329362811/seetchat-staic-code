@@ -15,7 +15,7 @@
             </div>
             <div class="moneyLie">
                 <span class="xuQiuMoney">￥600</span>
-                <span><van-button plain round type="primary" color="#4CD4D2" class="xuQiuDel" @click="tiXian">删除</van-button></span>
+                <span><van-button plain round type="primary" color="#4CD4D2" class="xuQiuDel">删除</van-button></span>
             </div>
         </div>
         <div class="xuQiuKa">
@@ -26,7 +26,7 @@
             </div>
             <div class="moneyLie">
                 <span class="xuQiuMoney">￥210</span>
-                <span><van-button plain round type="primary" color="#4CD4D2" class="xuQiuDel" @click="tiXian">删除</van-button></span>
+                <span><van-button plain round type="primary" color="#4CD4D2" class="xuQiuDel">删除</van-button></span>
             </div>
         </div>
 

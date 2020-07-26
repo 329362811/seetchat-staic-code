@@ -11,11 +11,16 @@
         </van-sticky>   
         <!--@submit="onSubmit"-->
         <van-form >
-            <van-field v-model="myData.fenVideo" class="touLie" center clearable label="封面/视频" placeholder="上传视频跟吸引他人关注你">
-                <template #button>
-                    <van-icon  name="arrow" />
+            <van-cell class="touLie" label="上传视频跟吸引他人关注你" >
+                <!-- 使用 title 插槽来自定义标题 -->
+                <template #title>
+                    <span class="custom-title"  style="margin-right:25px">封面/视频</span>
+                    <van-uploader  :after-read="afterRead" preview-size="40px" :max-count="4"  v-model="myData.fenVideo">
+                    
+                        <van-icon class="imgJianTou" name="arrow" />
+                    </van-uploader>
                 </template>
-            </van-field>
+            </van-cell>
 
             <van-field  v-model="myData.geXInQIanMing" class="touLie" rows="2" autosize label="个新签名" type="textarea"  
                 maxlength="30" placeholder="展示我的态度30字以内"  show-word-limit/>
@@ -42,37 +47,34 @@
             <van-field  v-model="myData.suoZaiDi" name="所在地" label="所在地" placeholder="请输入所在地"
                 :rules="[{ required: true, message: '请输入所在地' }]" />
 
-            <van-field v-model="myData.aiHao" class="touLie" rows="2" autosize label="爱好" type="textarea"  
+            <van-field v-model="myData.aiHao"  class="touLie" rows="2" autosize label="爱好" type="textarea"  
                 maxlength="100" placeholder="您的爱好100字以内"  show-word-limit/>
                 
-            <van-field v-model="myData.fenVideo" class="touLie" center clearable label="标签" placeholder="选择标签">
-                
-                    <van-tag round type="primary">标签</van-tag>
-                    <van-tag round type="success">标签</van-tag>
-                    <van-tag round type="primary">标签</van-tag>
-                    <van-tag round type="success">标签</van-tag>
-                    <van-tag round type="primary">标签</van-tag>
-                    <van-tag round type="success">标签</van-tag>
-                <template #button>
-                    <van-icon  @click="showBiaoQian"  name="arrow" />
-                </template>
-            </van-field>
+
             
-            <van-cell is-link  label="选择标签"  @click="showBiaoQian">
+            <van-cell class="touLie" label="选择标签">
                 <!-- 使用 title 插槽来自定义标题 -->
                 <template #title>
                     <span class="custom-title"  style="margin-right:50px">标签</span>
-                    <van-tag v-for="item in list" round   size="medium" type="danger" style="margin:3px">
+                    <van-tag v-for="item in listLan" round   size="medium" type="danger" style="margin:3px">
                         {{item.value}}
                     </van-tag>
                 </template>
+                <template #right-icon >
+                    <van-icon name="arrow" style="margin:10px" @click="showBiaoQian"/>
+                </template>
             </van-cell>
 
-            <div class="touLie" > 
-                <van-button round block type="info" native-type="submit">
-                    提交
-                </van-button>
-            </div>
+            <van-row class="touLie" >
+                <van-col span="1"> </van-col>
+                <van-col span="10">
+                    <van-button round block >取消</van-button>
+                </van-col>
+                <van-col span="2"> </van-col>
+                <van-col span="10">
+                    <van-button  class="tiJiaoBut" round block native-type="submit">提交</van-button>
+                </van-col>
+            </van-row>
         </van-form>
 
 
@@ -90,9 +92,9 @@
              <van-checkbox-group v-model="myData.biaoQianResult">
 
                 <van-cell-group>
-                    <van-cell v-for="item in list" clickable :key="item.label" :title="`${item.value}`">
+                    <van-cell v-for="item in listLie" clickable :key="item.label" :title="`${item.value}`">
                         <template #right-icon>
-                            <van-checkbox :name="item.label" ref="checkboxes" />
+                            <van-checkbox :name="item.label" checked-color="#4CD4D2" ref="checkboxes" />
                         </template>
                     </van-cell>
                 </van-cell-group>
@@ -115,8 +117,26 @@
         data (){
             return {
                 biaoQianshow: false,
-                //标签列表
-                list: [
+                //个人数据资料
+                myData:{
+                    fenVideo: [],   //封面和视频
+                    geXInQIanMing: '', //个性签名
+                    niCheng: '',        //昵称
+                    XingBie: '',        //性别
+                    nianLing: '',       //年龄
+                    shengRi: '',        //生日
+                    idHao: '',          //id号
+                    zhiYe: '',          //职业
+                    xingZuo: '',        //星座
+                    xueXiao: '',        //学校
+                    suoZaiDi: '',       //所在地
+                    aiHao: '',          //爱好
+                    biaoQianResult:[1,2],//标签接收列表
+               },
+                //标签栏展示使用
+                listLan:[],
+                //标签所有列表
+                listLie: [
                     {label:1,value:'情感'},
                     {label:2,value:'美食'},
                     {label:3,value:'职场'},
@@ -137,22 +157,6 @@
                     {label:18,value:'看电影'},
                     {label:19,value:'打游戏'},
                 ],
-                //个人数据资料
-                myData:{
-                    fenVideo: '',      //封面和视频
-                    geXInQIanMing: '', //个性签名
-                    niCheng: '',        //昵称
-                    XingBie: '',        //性别
-                    nianLing: '',       //年龄
-                    shengRi: '',        //生日
-                    idHao: '',          //id号
-                    zhiYe: '',          //职业
-                    xingZuo: '',        //星座
-                    xueXiao: '',        //学校
-                    suoZaiDi: '',       //所在地
-                    aiHao: '',          //爱好
-                    biaoQianResult:[],//标签接收列表
-               }
 
             }
         },
@@ -164,11 +168,22 @@
 
         //网页加载完成
         mounted () {
-            
+            this.bQResultTurnListLan()
         },
 
         //声明方法
         methods : {
+            //把个人数据中的标签为数字标识符的数组转换为标签使用的带中文的展示数组
+            bQResultTurnListLan: function(){
+                this.listLan=[]
+                for(var i=0;i<this.myData.biaoQianResult.length;i++){
+                    for(var j=0;j<this.listLie.length;j++){
+                        if(this.myData.biaoQianResult[i]==this.listLie[j].label){
+                            this.listLan.push({label:this.listLie[j].label,value:this.listLie[j].value})
+                        }
+                    }
+                }
+            },
             //返回上一页
             fanHui:function(){
                 this.$router.go(-1);
@@ -179,8 +194,13 @@
             },
             //标签弹出框关闭
             biaoQianGuanBi() {
+                this.bQResultTurnListLan()
                 this.biaoQianshow = false;
             },
+            //文件上传完毕后会触发 after-read 回调函数，获取到对应的 file 对象。
+            afterRead:function(file){
+                console.log(file)
+            }
            
         },
 
@@ -216,5 +236,12 @@
             color:#C1C1C1
             font-size:14px
         .touLie
+            padding-top:10px
+            padding-bottom:10px
             margin-top:15px
+            .imgJianTou
+                padding:0px
+            .tiJiaoBut
+                color:white
+                background: -webkit-gradient(linear, left top, right bottom, color-stop(10%,#1DE7A7), color-stop(80%,#22D3F5))
 </style>

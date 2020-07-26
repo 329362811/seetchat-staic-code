@@ -1,287 +1,322 @@
 <template>
+    <!--发布需求页面-->
+    <div class="container">
+        <van-sticky>
+            <div class="head">
+                <van-row>
+                    <van-col span="9" class="tuPiao"><van-icon  @click="fanHui" size="20" name="arrow-left" /></van-col>
+                    <van-col span="8">发布需求</van-col>
+                </van-row>
+            </div>
+        </van-sticky>   
+        <!--@submit="onSubmit"-->
+        <van-form >
+            
+            <van-field  v-model="pdemandData.pName" class="touLie" rows="2" autosize label="需求名称" type="textarea"  
+                maxlength="20" show-word-limit placeholder="20字符以内" />
 
-  <div class="main">
+                
+            <van-field v-model="pdemandData.pMoney"  class="touLie" placeholder="请输入价格" 
+                type="number" label="价格（元）" />
 
-   <!--头部-->
-   <van-nav-bar
-    :title='title'
-    fixed
-   />
+            <van-cell class="touLie" label="开始时间">
+                <template #title>
+                    <span class="custom-title"  style="margin-right:50px">开始时间</span>{{pdemandData.pBeginTime}}
+                </template>
+                <template #right-icon ><van-icon name="arrow" style="margin:5px" @click="showBeginTime"/></template>
+            </van-cell>
+            <van-cell label="结束时间" >
+                <template #title>
+                    <span class="custom-title"  style="margin-right:50px">结束时间</span>{{pdemandData.pEndTime}}
+                </template>
+                <template #right-icon ><van-icon name="arrow" style="margin:5px" @click="showEndTime"/></template>
+            </van-cell>
+
+            <van-cell label="聊天方式"  class="touLie">
+                <template #title>
+                    <span class="custom-title"  style="margin-right:50px">聊天方式</span>
+                </template>
+                <template #right-icon ><van-icon name="arrow" style="margin:5px"  @click="showFangShi"/></template>
+            </van-cell>
+
+            
+            
+            <van-cell  class="touLie" label="选择标签" >
+                <!-- 使用 title 插槽来自定义标题 -->
+                <template #title>
+                    <span class="custom-title"  style="margin-right:50px">标签</span>
+                    <van-tag v-for="item in listLan" round   size="medium" type="danger" style="margin:3px">
+                        {{item.value}}
+                    </van-tag>
+                </template>
+                <template #right-icon ><van-icon name="arrow" style="margin:5px" @click="showBiaoQian"/></template>
+            </van-cell>
+            
+            <van-field  v-model="pdemandData.pBeiZhu" class="touLie" rows="2" autosize label="备注" type="textarea"  
+                maxlength="200" placeholder="您的需求简介200字符以内"  show-word-limit/>
 
 
-  <div class="content" >
 
-	<div class="grid-container">
-		<div class="box">
-			<van-grid>
-			  <van-grid-item icon="photo-o" text="文字" style="background-color: red;" @click="go('informationAcquisition')">
-				  <img src="../../assets/images/84/InformationCollection@2x.png" alt="">
-				   <p>信息采集</p>
-			  </van-grid-item>
-			  <van-grid-item icon="photo-o" text="文字"  @click="go('creditCheck')">
-			  			  <img src="../../assets/images/84/Creditcheck1@2x.png" alt="">
-			  			   <p>征信校验</p>
-			  </van-grid-item>
-			  <van-grid-item icon="photo-o" text="文字" @click="go('loanLaunch')">
-			  			  	<img src="../../assets/images/84/Loaninitiation1@2x.png" alt="">
-			  			   <p>贷款发起</p>
-			  </van-grid-item>
+            <van-row class="touLie" >
+                <van-col span="1"> </van-col>
+                <van-col span="10">
+                    <van-button round block >取消</van-button>
+                </van-col>
+                <van-col span="2"> </van-col>
+                <van-col span="10">
+                    <van-button  class="tiJiaoBut" round block native-type="submit">发布</van-button>
+                </van-col>
+            </van-row>
+        </van-form>
 
-			  <van-grid-item icon="photo-o" text="文字" @click="go('applyQuery')">
-			  			 <img src="../../assets/images/84/Creditinquiry@2x.png" alt="">
-			  			   <p>申贷查询</p>
-			  </van-grid-item>
-			</van-grid>
-			<van-grid>
-			<van-grid-item icon="photo-o" text="文字" @click="go('mortgageRegistration')">
-						<img src="../../assets/images/84/Mortgageregistration@2x.png" alt="">
-						   <p>抵押登记</p>
-			</van-grid-item>
-			<van-grid-item icon="photo-o" text="文字" @click="go('loanTracking')">
-						 <img src="../../assets/images/84/Post-loantracking@2x.png" alt="">
-						   <p>贷后跟踪</p>
-			</van-grid-item>
-			  <van-grid-item icon="photo-o" text="文字" @click="go('contractSign')">
-			  		<img src="../../assets/images/84/signacontract@2x.png" alt="">
-			  			   <p>合同签订</p>
-			  </van-grid-item>
 
-			  <van-grid-item icon="photo-o" text="文字" @click="go('businessMonitor')">
-			  		<img src="../../assets/images/84/signacontract@2x.png" alt="">
-			  			   <p>业务监测</p>
-			  </van-grid-item>
-			  <van-grid-item icon="photo-o" text="文字" @click="go('collectionManagement')">
-			  		<img src="../../assets/images/84/signacontract@2x.png" alt="">
-			  			   <p>催收管理</p>
-			  </van-grid-item>
-			</van-grid>
-		</div>
-	</div>
-	<img src="../../assets/images/other/banner2.png" alt="" class="banner">
 
-	<van-cell-group >
-		<van-cell is-link @click="go('loanLaunch')">
-		  <!-- 使用 title 插槽来自定义标题 -->
-		  <template slot="title" >
-			    <van-tag type="danger" class="left_tag">&nbsp;</van-tag>
-				<span class="custom-title">&nbsp;&nbsp;贷款发起</span>
-		  </template>
-		</van-cell>
-		<div class="cell-container">
-			<br>
-			<van-cell class="cell-box">
-				<div class=" dk-pan">
-					<van-col span="15"><img class="company" src="../../assets/images/38/Companyname@2x.png" alt="">&nbsp;广州市睿智防水电器股份有限公司 </van-col>
-					<van-col span="9" class="subText">采集:2019/08/15 </van-col>
-					<van-col class="grey" span="9">企业主</van-col><van-col span="15">艾仲华</van-col>
-					<van-col class="grey" span="9">统一社会信用代码 </van-col><van-col span="15">&nbsp;91120116MA07K2307A</van-col>
-					<van-col span="24" class="detail" @click="go('loanLaunch')"><img class="detail-img" src="../../assets/images/38/Initiatingaloan@2x.png" alt="">&nbsp;&nbsp;贷款发起</van-col>
-				</div>
-			</van-cell>
-			<van-cell class="cell-box">
-				<div class=" dk-pan">
-					<van-col span="15"><img class="company" src="../../assets/images/38/Companyname@2x.png" alt=""> 广州市睿智防水电器股份有限公司 </van-col>
-					<van-col span="9" class="subText">采集:2019/08/15 </van-col>
-					<van-col class="grey" span="9">企业主</van-col><van-col span="15">艾仲华</van-col>
-					<van-col class="grey" span="9">统一社会信用代码 </van-col><van-col span="15">&nbsp;91120116MA07K2307A</van-col>
-					<van-col span="24" class="detail"  @click="go('loanLaunch')"><img class="detail-img" src="../../assets/images/38/Initiatingaloan@2x.png" alt="">&nbsp;&nbsp;贷款发起</van-col>
-				</div>
-			</van-cell>
-		</div>
+        <!--开始时间弹出框-->
+        <van-popup v-model="beginTimeShow" close-icon-position="top-left" position="bottom" :style="{ height: '50%' }">
+            <van-datetime-picker v-model="currentDate" type="datetime" title="开始时间" :min-date="minDate" 
+            :max-date="maxDate" @confirm="beginTimeIsOkBut('确定')" @cancel="beginTimeIsOkBut('取消')"/>
+        </van-popup>
+        <!--结束时间弹出框-->
+        <van-popup v-model="endTimeShow" close-icon-position="top-left" position="bottom" :style="{ height: '50%' }">
+            <van-datetime-picker v-model="currentDate" type="datetime" title="开始时间" :min-date="minDate" 
+            :max-date="maxDate" @confirm="endTimeIsOkBut('确定')" @cancel="endTimeIsOkBut('取消')"/>
 
-	</van-cell-group>
-  </div>
-  <!--tabbar-->
-  <TabBar/>
+        </van-popup>
+        <!--聊天方式弹出框-->
+        <van-popup v-model="fangShiShow" close-icon-position="top-left" position="bottom" :style="{ height: '50%' }">
+            <van-radio-group v-model="pdemandData.pFangShi">
+                <van-cell-group>
+                    <van-cell title="单选框 1" clickable @click="radio = '1'">
+                        <template #right-icon>
+                            <van-radio name="1" />
+                        </template>
+                    </van-cell>
+                    <van-cell title="单选框 2" clickable @click="radio = '2'">
+                        <template #right-icon>
+                            <van-radio name="2" />
+                        </template>
+                    </van-cell>
+                </van-cell-group>
+            </van-radio-group>
+        </van-popup>
 
-  </div>
+        <!-- 标签弹出框 -->
+        <van-popup v-model="biaoQianshow" close-icon-position="top-left" position="bottom" :style="{ height: '100%' }">
+            <van-sticky>
+                <div class="head">
+                    <van-row>
+                        <van-col span="9" class="tuPiao"><van-icon  @click="biaoQianGuanBi" size="20" name="arrow-left" /></van-col>
+                        <van-col span="8">我的标签</van-col>
+                    </van-row>
+                </div>
+            </van-sticky>   
+             <van-checkbox-group v-model="pdemandData.pBiaoQianResult">
+
+                <van-cell-group>
+                    <van-cell v-for="item in listLie" clickable :key="item.label" :title="`${item.value}`">
+                        <template #right-icon>
+                            <van-checkbox :name="item.label" checked-color="#4CD4D2" ref="checkboxes" />
+                        </template>
+                    </van-cell>
+                </van-cell-group>
+
+            </van-checkbox-group>
+        </van-popup>
+
+    </div>
 
 </template>
 
 <script>
-//引入组件首字母大写
-import TabBar from '@/components/tabBar';
-import Vue from 'vue';
-import { Swipe, SwipeItem,Grid, GridItem,Image,Panel,NoticeBar,Cell, CellGroup,Row, Col } from 'vant';
-Vue.use(Swipe).use(SwipeItem).use(Grid).use(GridItem).use(Image)
-.use(Panel).use(NoticeBar).use(CellGroup).use(Row).use(Col);
 
-export default {
+    //引入组件首字母大写
+    import { Dialog} from 'vant';
+    import Vue from 'vue';
+    export default {
 
-  //基础数据存放处
-  data (){
-     return {
-       title : '贷款',
-	    current: 0,
-     }
-  },
+        //基础数据存放处
+        data (){
+            return {
+                minDate: new Date(2020, 0, 1),
+                maxDate: new Date(2025, 10, 1),
+                currentDate: new Date(),
 
-  //数据预加载
-  created : function(){
+                beginTimeShow: false,   //开始时间弹出框判断
+                endTimeShow: false,     //结束时间弹出框判断
+                fangShiShow: false,     //聊天方式弹出框判断
+                biaoQianshow: false,    //标签弹出框判断
+                //个人数据资料
+                pdemandData:{
+                    pName: '',          //需求名称
+                    pMoney: null,       //需求价格
+                    pBeginTime: '',      //需求开始时间
+                    pEndTime: '',        //需求结束时间
+                    pFangShi: '',       //聊天方式
+                    pBiaoQianResult:[1,2],//标签接收列表
+                    pBeiZhu: '',        //备注
+               },
+                //标签栏展示使用
+                //标签所有列表
+                listFangShiLie: [
+                    {label:1,value:'语音聊天'},
+                    {label:2,value:'视频聊天'},
+                    {label:3,value:'文字聊天'},
+                    {label:4,value:'娱乐聊天'},
+                    {label:5,value:'解心事聊天'},
+                ],
 
-    console.log('hello world');
+                listLan:[],
+                //标签所有列表
+                listLie: [
+                    {label:1,value:'情感'},
+                    {label:2,value:'美食'},
+                    {label:3,value:'职场'},
+                    {label:4,value:'户外'},
+                    {label:5,value:'跳舞'},
+                    {label:6,value:'看电影'},
+                    {label:7,value:'打游戏'},
+                    {label:8,value:'情感'},
+                    {label:9,value:'美食'},
+                    {label:10,value:'职场'},
+                    {label:11,value:'户外'},
+                    {label:12,value:'跳舞'},
+                    {label:13,value:'看电影'},
+                    {label:14,value:'打游戏'},
+                    {label:15,value:'职场'},
+                    {label:16,value:'户外'},
+                    {label:17,value:'跳舞'},
+                    {label:18,value:'看电影'},
+                    {label:19,value:'打游戏'},
+                ],
 
-  },
+            }
+        },
 
-  //网页加载完成
-  mounted : function(){
+        //数据预加载
+        created : function(){
+            this.screenHeight = window.screenHeight;
+        },
 
-  },
+        //网页加载完成
+        mounted () {
+            this.bQResultTurnListLan()
+            this.currentDate=this.timeFormat(this.currentDate)
+        },
 
-  //声明方法
-  methods : {
+        //声明方法
+        methods : {
+            //把个人数据中的标签为数字标识符的数组转换为标签使用的带中文的展示数组
+            bQResultTurnListLan: function(){
+                this.listLan=[]
+                for(var i=0;i<this.pdemandData.pBiaoQianResult.length;i++){
+                    for(var j=0;j<this.listLie.length;j++){
+                        if(this.pdemandData.pBiaoQianResult[i]==this.listLie[j].label){
+                            this.listLan.push({label:this.listLie[j].label,value:this.listLie[j].value})
+                        }
+                    }
+                }
+            },
+            //时间转换方法
+            timeFormat(time){
+                let year = time.getFullYear()
+                let month = time.getMonth() + 1
+                if(month<10){
+                    month="0"+month
+                }
+                let day = time.getDate()
+                if(day<10){
+                    day="0"+day
+                }
+                let hour = time.getHours()
+                if(hour<10){
+                    hour="0"+hour
+                }
+                let minute= time.getMinutes()
+                if(minute<10){
+                    minute="0"+minute
+                }
+                return year+"-"+month+"-"+day+"    "+hour+":"+minute
+            },
+            //返回上一页
+            fanHui:function(){
+                this.$router.go(-1);
+            },
+            //打开开始时间弹出框
+            showBeginTime: function(){
+                this.beginTimeShow=true
+            },
+            //开始时间确定或取消按钮
+            beginTimeIsOkBut: function(value){
+                if(value=="确定"){
+                    this.pdemandData.pBeginTime=this.timeFormat(this.currentDate)
+                }
+                this.beginTimeShow=false
+            },
+            //打开结束时间弹出框
+            showEndTime: function(){
+                this.endTimeShow=true
+            },
+            //结束时间确定或取消按钮
+            endTimeIsOkBut: function(value){
+                if(value=="确定"){
+                    this.pdemandData.pEndTime=this.timeFormat(this.currentDate)
+                }
+                this.endTimeShow=false
+            },
+            //打开聊天方式弹出框
+            showFangShi: function(){
+                this.fangShiShow=true
+            },
+            //打开标签页
+            showBiaoQian: function(){
+                this.biaoQianshow=true
+            },
+            //标签弹出框关闭
+            biaoQianGuanBi() {
+                this.bQResultTurnListLan()
+                this.biaoQianshow = false;
+            },
+            //文件上传完毕后会触发 after-read 回调函数，获取到对应的 file 对象。
+            afterRead:function(file){
+                console.log(file)
+            }
+           
+        },
 
-    go : function(url){
-      this.$router.push({name:url});
-    },
-	onBannerChange(index) {
-		this.current = index;
-	}
+        //计算属性
+        computed: {
 
-  },
-
-  //计算属性
-  computed: {
-
-  },
+        },
 
 
-  components: {
-    TabBar
-  }
-}
+        components: {
+           
+        }
+    }
 </script>
 
-<style lang="scss" scoped>
-.content{
-	background-color: rgb(238,238,238);
-}
-.msg{
-  text-align: center;
-  padding:10px;
-}
-.banner{
-	display: block;
-	width:100%;
-	height: auto;
-}
-.custom-indicator{
-	position: absolute;
-	bottom: 0px;
-	height: 44px;
-	width: 200px;
-	left: 50%;
-	margin-left: -100px;
-	text-align: center;
-	line-height: 44px;
-}
-.indicator{
-	background-color: rgba(255,255,255,0.4);
-	width: 12px;
-	height: 12px;
-	border-radius: 6px;
-	display: inline-block;
-	margin: 10px 6px;
-}
-.indicator.active{
-	background-color: rgba(255,255,255,1);
-}
-.grid-container{
-	padding: 10px 16px 0px 16px;
+<style lang="stylus" scoped>
+    .container
+        height:667px
+        width:100vw
+        background-color:#F9F9FB
 
-	border-radius: 12px;;
-
-}
-.grid-container .box{
-	border: 1px solid rgb(248,248,248);
-	box-shadow: 0 2px 2px 0 rgba(0,0,0,.15);
-	min-height: 200px;
-	border-radius: 12px;;
-}
-.grid-container .grid{
-	width: 25%;
-	height: 80px;
-	float: left;
-}
-.grid-container img{
-	width: 25%;
-	min-width: 44px;
-	display: block;
-	margin: 0 auto;
-}
-.grid-container p{
-	text-align: center;
-	margin: 2px;;
-	font-size: 14px;;
-}
-.left_tag{
-	background-color: rgb(90,75,234);
-	padding: 0px 3px;
-	border-radius: 0px;;
-	height: 16px;
-}
-.cell-num{
-	color: #f76037;
-	font-size: 26px;
-
-}
-.check{
-	background-color: #4c62e7;
-	padding: 0px 16px;
-	border-radius: 14px;
-	float: right;
-}
-.dk-pan{
-	font-size: 13px;;
-	padding: 0px 20px;;
-
-}
-.dk-pan div{
-	padding: 4px 0px;
-}
-.grey{
-	color: #999999;
-}
-.orange{
-	color: #f76037;
-}
-.company{
-	width: 16px;
-	height: 16px;
-	display: inline;
-	margin-left: -20px;
-	vertical-align:top;
-	margin-top:2px;
-}
-.padding-bottom-16{
-	padding-bottom: 32px;;
-}
-.cell-container{
-	padding: 0px 12px;
-	background-color: rgb(238,238,238);
-	margin-top: -8px;;
-	padding-bottom: 64px;
-}
-.cell-container .cell-box{
-	border-radius: 8px;
-	margin-bottom: 16px;
-}
-.subText{
-	font-size: 12px;
-	color: #666666;
-	text-align: right;
-}
-.detail{
-		text-align: center;
-		color: #4c62e7;
-		padding: 12px 0px 8px;
-		font-size: 14px;
-		margin-left: -11px;
-		border-top: 1px lightgray solid;
-	}
-
-	.detail-img{
-		width: 14px;;
-		vertical-align: text-top;
-	}
+        .head
+            padding-left: 15px;
+            padding-top:20px
+            background-color:white
+            font-size:18px
+            height:36px;
+            width:100vw
+            .tuPiao
+                margin-top:3px
+        .touLie
+            padding-top:10px
+            padding-bottom:10px
+            margin-top:15px
+            .imgJianTou
+                padding:0px
+            .tiJiaoBut
+                color:white
+                background: -webkit-gradient(linear, left top, right bottom, color-stop(10%,#1DE7A7), color-stop(80%,#22D3F5))
 </style>

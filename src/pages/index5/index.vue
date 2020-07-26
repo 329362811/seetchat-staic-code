@@ -169,7 +169,14 @@
             height:150px
             padding:15px 15px 0 20px
             border-radius:15px
-            box-shadow:0px 0px 3px 3px rgba(0,0,0,0.2)
+            box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2)
+            color:white
+            
+            //background: -moz-linear-gradient(top, #22D3F5 0%, #1DE7A7 50%)
+            background: -webkit-gradient(linear, left top, right bottom, color-stop(10%,#22D3F5), color-stop(80%,#1DE7A7))
+            // background: -o-linear-gradient(top, #22D3F5 0%,#1DE7A7 100%)
+            // background: -ms-linear-gradient(top, #22D3F5 0%,#1DE7A7 100%)
+            //background: linear-gradient(to bottom, #22D3F5 0%,#1DE7A7 100%)
 
             // background: url(https://img.yzcdn.cn/vant/cat.jpeg) repeat-x center
             .caiFuColumnOne
@@ -180,6 +187,7 @@
                 .oneRight
                     float:right
                     font-size:14px
+                    color:white
                 .oneLeftTwo
                     float:left
                     font-size:13px
