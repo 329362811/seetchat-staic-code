@@ -56,6 +56,14 @@ export default new Router({
         meta: {
          title: '我的'
         },
+      },
+      {
+        name: 'demandDetails',
+        path: '/demandDetails',
+        component: () => import('@/pages/demandDetails'),
+        meta: {
+          title:'需求详情'
+        }
       }
 		
     ]
