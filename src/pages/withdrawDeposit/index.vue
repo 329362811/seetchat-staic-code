@@ -1,0 +1,121 @@
+<template>
+    <!--提现页面'-->
+    <div class="container">
+        <div class="head">
+            <van-row>
+                <van-col span="11" class="tuPiao"><van-icon  @click="fanHui" size="20" name="arrow-left" /></van-col>
+                <van-col span="8">提现</van-col>
+            </van-row>
+        </div>
+        <!--@submit="onSubmit"-->
+        <van-form >
+            <van-field v-model="shouKuanRen"  style="margin-top:15px"  name="收款人" label="收款人" placeholder="请输入收款人"
+                :rules="[{ required: true, message: '请输入收款人姓名' }]"/>
+            <van-field  v-model="shouKuanHao" name="收款账号" label="收款账号" placeholder="请输入卡号"
+                :rules="[{ required: true, message: '请输入收款账号' }]" />
+          
+            <div class="moneyKa">
+                <div>提现金额</div>
+                <!-- 允许输入数字，调起带符号的纯数字键盘 -->
+                <van-field class="moneyLie" v-model="money" placeholder="请输入金额" label-width="22"
+                   type="number" label="￥" />
+                <div class="fenGeXian"></div>
+                <div>可提现￥570</div>
+            </div>
+            <div style="margin: 16px;"> 
+                <van-button class="tiJiaoBut" round block type="info" native-type="submit">
+                    提交
+                </van-button>
+            </div>
+        </van-form>
+        
+
+
+    </div>
+
+</template>
+
+<script>
+
+    //引入组件首字母大写
+    import { Dialog} from 'vant';
+    import Vue from 'vue';
+    export default {
+
+        //基础数据存放处
+        data (){
+            return {
+               shouKuanRen: '',
+               shouKuanHao: '',
+               money: null,
+            }
+        },
+
+        //数据预加载
+        created : function(){
+            this.screenHeight = window.screenHeight;
+        },
+
+        //网页加载完成
+        mounted () {
+            
+        },
+
+        //声明方法
+        methods : {
+           //返回上一页
+           fanHui:function(){
+                this.$router.go(-1);
+           }
+           
+        },
+
+        //计算属性
+        computed: {
+
+        },
+
+
+        components: {
+           
+        }
+    }
+</script>
+
+<style lang="stylus" scoped>
+    .container
+        height:667px
+        width:100vw
+        background-color:#F9F9FB
+        .head
+            padding-left: 15px;
+            padding-top:20px
+            background-color:white
+            font-size:18px
+            height:36px;
+            width:100vw
+            .tuPiao
+                margin-top:3px
+        .moneyKa
+            width:100vw
+            background-color:white
+            margin-top:15px
+            padding:15px
+            font-size:14px
+            .moneyLie
+                line-height:40px
+                font-size:30px
+                margin-top:20px
+                margin-bottom:0px
+                padding-left:0px
+                color:#000000
+            .fenGeXian
+                width:auto
+                margin-right:30px
+                margin-bottom:10px
+                border-bottom:2px solid #F9F9FB
+        .tiJiaoBut 
+            border:0px solid
+            background: -webkit-gradient(linear, left top, right bottom, color-stop(10%,#1DE7A7), color-stop(80%,#22D3F5))
+
+</style>

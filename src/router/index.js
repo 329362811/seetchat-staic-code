@@ -30,6 +30,7 @@ export default new Router({
          title: '关注'
         },
       },
+      
 
       {
         name: 'index3',
@@ -37,6 +38,14 @@ export default new Router({
         component:  () => import('@/pages/index3'),
         meta: {
          title: '发布需求'
+        },
+      },
+      {
+        name: 'releaseSuccess',
+        path: '/releaseSuccess',
+        component:  () => import('@/pages/releaseSuccess'),
+        meta: {
+         title: '发布需求成功'
         },
       },
 
@@ -58,6 +67,7 @@ export default new Router({
         },
       },
       {
+<<<<<<< HEAD
         name: 'demandDetails',
         path: '/demandDetails',
         component: () => import('@/pages/demandDetails'),
@@ -65,6 +75,41 @@ export default new Router({
           title:'需求详情'
         }
       }
+=======
+        name: 'personalData',
+        path: '/personalData',
+        component:  () => import('@/pages/personalData'),
+        meta: {
+         title: '编辑资料'
+        },
+      },
+      {
+        name: 'withdrawDeposit',
+        path: '/withdrawDeposit',
+        component:  () => import('@/pages/withdrawDeposit'),
+        meta: {
+         title: '提现'
+        },
+      },
+      {
+        name: 'myNeed',
+        path: '/myNeed',
+        component:  () => import('@/pages/myNeed'),
+        meta: {
+         title: '我的需求'
+        },
+      },
+      {
+        name: 'accountDetails',
+        path: '/accountDetails',
+        component:  () => import('@/pages/accountDetails'),
+        meta: {
+         title: '账户明细'
+        },
+      },
+
+
+>>>>>>> baf252cdfac78201e893e89dbe76c568c88b54de
 		
     ]
   })
