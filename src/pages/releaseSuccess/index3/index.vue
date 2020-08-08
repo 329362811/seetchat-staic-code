@@ -60,11 +60,11 @@
             <van-row class="touLie" >
                 <van-col span="1"> </van-col>
                 <van-col span="10">
-                    <van-button round block @click="fanHui">取消</van-button>
+                    <van-button round block >取消</van-button>
                 </van-col>
                 <van-col span="2"> </van-col>
                 <van-col span="10">
-                    <van-button  @click="releasedBut" class="tiJiaoBut" round block native-type="submit">发布</van-button>
+                    <van-button  class="tiJiaoBut" round block native-type="submit">发布</van-button>
                 </van-col>
             </van-row>
         </van-form>
@@ -305,11 +305,8 @@
             //文件上传完毕后会触发 after-read 回调函数，获取到对应的 file 对象。
             afterRead:function(file){
                 console.log(file)
-            },
-            //发布
-            releasedBut: function(){
-                 this.$router.push("/releaseSuccess");
             }
+           
         },
 
         //计算属性

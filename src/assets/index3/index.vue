@@ -60,7 +60,7 @@
             <van-row class="touLie" >
                 <van-col span="1"> </van-col>
                 <van-col span="10">
-                    <van-button round block @click="fanHui">取消</van-button>
+                    <van-button round block >取消</van-button>
                 </van-col>
                 <van-col span="2"> </van-col>
                 <van-col span="10">

@@ -1,6 +1,6 @@
 <template>
-    <!--个人中心页面'-->
-    <div class="container">
+    <!--关注页面'-->
+    <div class="container-index2">
        	<van-tabs class="vanTabs" sticky line-width="10px" color="#000000" v-model="active" animated>
             <van-tab class="tabs-1" title="我的关注">
                
@@ -248,9 +248,11 @@
     font-size:21px;
     font-weight: bold;
 }
-.van-tabs__nav--line{
-    padding-right:45vw;
-	/*width: 50vw;*/
+.container-index2 .van-hairline--top-bottom{
+    background-color:#FFFFFF;
+}
+.container-index2 .van-tabs__nav--line{
+	width: 50vw  !important;
 	border: none !important;
 }
 [class*=van-hairline]::after{
@@ -258,7 +260,7 @@
 }
 </style>
 <style lang="stylus" scoped>
-    .container
+    .container-index2
         padding:10px
         .vanTabs
             padding-bottom:50px

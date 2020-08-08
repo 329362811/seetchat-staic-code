@@ -40,6 +40,14 @@ export default new Router({
          title: '发布需求'
         },
       },
+      {
+        name: 'releaseSuccess',
+        path: '/releaseSuccess',
+        component:  () => import('@/pages/releaseSuccess'),
+        meta: {
+         title: '发布需求成功'
+        },
+      },
 
       {
         name: 'index4',
