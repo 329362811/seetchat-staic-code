@@ -67,15 +67,30 @@ export default new Router({
         },
       },
       {
-<<<<<<< HEAD
         name: 'demandDetails',
         path: '/demandDetails',
         component: () => import('@/pages/demandDetails'),
         meta: {
           title:'需求详情'
         }
-      }
-=======
+      },
+      {
+        name: 'settlement',
+        path: '/settlement',
+        component: () => import('@/pages/settlement'),
+        meta: {
+          title:'结算'
+        }
+      },
+      {
+        name: 'settlementAgreement',
+        path: '/settlementAgreement',
+        component: () => import('@/pages/settlementAgreement'),
+        meta: {
+          title:'用户协议'
+        }
+      },
+      {
         name: 'personalData',
         path: '/personalData',
         component:  () => import('@/pages/personalData'),
@@ -109,7 +124,6 @@ export default new Router({
       },
 
 
->>>>>>> baf252cdfac78201e893e89dbe76c568c88b54de
 		
     ]
   })

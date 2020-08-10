@@ -27,17 +27,90 @@
 						<div class="video-timer">
 							<span id="duration">00:00</span>
 						</div>
-						<!-- <i id="sound" class="sound"></i>
-						<i id="muteSound" class="sound"></i> -->
-						<!-- <div class="video-sound">
-							<div class="soundBar"></div>
-						</div> -->
-						<!-- <i id="screen"></i> -->
 					</div>
 				</div>
+				<van-form validate-first>
+					<h2 class="dai-ma-yan-shi floatLeft">零度</h2>
+					<div class="floatright">￥200</div>
+					<div style="clear:both;"></div>
+					<div class="padd-let">
+						<span class="spanright5">深圳</span>
+						<span class="spanright5">2小时前</span>
+					</div>
+					<div class="padd-let ">
+						<van-tag round type="primary" class="van-col-woman"><van-icon name="contact"/>20</van-tag>
+						<van-tag round type="success">美食</van-tag>
+						<van-tag round type="danger">情感</van-tag>
+						<van-tag round type="warning">休闲生活</van-tag>
+						<div class="bor-bottom-solid"></div>
+					</div>
+				</van-form>
+				<van-form validate-first>
+					<h2 class="dai-ma-yan-shi">她的要求</h2>
+					<h3 class="dai-ma-yan-shi2">{{value}}</h3>
+					<van-field v-model="value1" label="开始时间" name="pattern" placeholder="" readonly/>
+					<van-field v-model="value2" label="结束时间" name="validator" placeholder=""/>
+					<van-field v-model="value3" label="发布时间" name="asyncValidator" placeholder=""/>
+					<van-field v-model="value4" label="时长" name="asyncValidator" placeholder=""/>
+					<van-field v-model="value5" label="需求标签" name="asyncValidator" placeholder=""/>
+					<van-field v-model="value6" label="聊天方式" name="asyncValidator" placeholder=""/>
+					<van-field v-model="value7" label="备注" name="asyncValidator" placeholder=""/>
+					<div style="margin: 16px;">
+					</div>
+				</van-form>
+				<van-form validate-first>
+					<h2 class="dai-ma-yan-shi">个人资料</h2>
+					<van-field v-model="value8" label="年龄" name="pattern" placeholder="" readonly/>
+					<van-field v-model="value9" label="生日" name="validator" placeholder=""/>
+					<van-field v-model="value10" label="ID号" name="asyncValidator" placeholder=""/>
+					<van-field v-model="value11" label="个性签名" name="asyncValidator" placeholder=""/>
+					<van-field v-model="value12" label="职业" name="asyncValidator" placeholder=""/>
+					<van-field v-model="value13" label="星座" name="asyncValidator" placeholder=""/>
+					<van-field v-model="value14" label="学校" name="asyncValidator" placeholder=""/>
+					<van-field v-model="value15" label="爱好" name="asyncValidator" placeholder=""/>
+					<div style="margin: 16px;">
+					</div>
+				</van-form>
+				<van-form validate-first class="pl-div">
+					<h2 class="dai-ma-yan-shi floatLeft">最近收到的评论（26）</h2>
+					<div class="van-cell van-field">
+						<div class="van-cell__title van-field__label">
+							<van-image round fit="none" width="2.5rem" height="2.5rem" src="https://img.yzcdn.cn/vant/cat.jpeg"/>
+						</div>
+						<div class="van-cell__value van-field__value">
+							<div class="van-field__body">
+								<div>李月如</div>
+							</div>
+							<div class="van-field__body">
+								<div class="valueColor">是个话唠，聊的很愉快哈哈</div>
+							</div>
+							<div class="van-field__body">
+								<van-image fit="contain" width="2rem" height="2rem" src="https://img.yzcdn.cn/vant/cat.jpeg"/>
+							</div>
+						</div>
+					</div>
+					<div class="van-cell van-field">
+						<div class="van-cell__title van-field__label">
+							<van-image round fit="none" width="2.5rem" height="2.5rem" src="https://img.yzcdn.cn/vant/cat.jpeg"/>
+						</div>
+						<div class="van-cell__value van-field__value">
+							<div class="van-field__body">
+								<div>伊依呀</div>
+							</div>
+							<div class="van-field__body">
+								<div class="valueColor">一站式敏捷研发协作云平台凝聚腾讯研发方法及敏捷实践精髓助力企业研发更高效</div>
+							</div>
+						</div>
+					</div>
+					<div style="margin: 16px;">
+						<van-button class="btnW50 color-rel" round block type="info" native-type="submit"><van-icon class="chat-sty" />提交</van-button>
+						<van-button class="btnW50 color-redF" round block type="info" native-type="submit"><van-icon class="like-sty" />提交</van-button>
+						<div style="clear:both;"></div>
+					</div>
+				</van-form>
 			</div>
 		<!--tabbar-->
-		<TabBar/>
+		<!-- <TabBar/> -->
 	</div>
 </template>
 
@@ -59,6 +132,22 @@
 				isPlaying:false,
 				duration:"",
 				currentTime:"",
+				value:"刚失恋，聊点开心的",
+				value1:"2020-06-21 19:00",
+				value2:"2020-06-21 19:00",
+				value3:"06-20 18:26",
+				value4:"60分钟",
+				value5:"情感",
+				value6:"文字/语音电话",
+				value7:"-",
+				value8:"22",
+				value9:"6月20日",
+				value10:"13700042455",
+				value11:"-",
+				value12:"学生",
+				value13:"巨蟹座",
+				value14:"中山大学",
+				value15:"喜欢旅游",
 			}
 		},
 
@@ -212,12 +301,85 @@
 .chat-demandDetails
 	font-family PingFangSC-Medium
 	.content
-	
+		margin-bottom 50px
+		.pl-div
+			.van-field__label
+				width 3.5em
+			.van-cell__value
+				text-align left
+				background-color #F8F9FD
+				padding 10px
+				.valueColor
+					color #252B3A
+		.van-cell::after
+			border-bottom 0px
+		.dai-ma-yan-shi
+			font-family PingFangSC-Medium
+			color #252B3A
+			font-size 22px
+			padding 10px 16px
+			margin 0
+		.dai-ma-yan-shi2
+			font-family PingFangSC-Medium
+			color #252B3A
+			font-size 18px
+			padding 0px 16px
+			margin 0
+			font-weight normal
+		.floatLeft
+			float left
+			width 70vw
+		.floatright
+			float left  
+			width 20vw
+			height 48px
+			line-height 48px
+			text-align center
+			color #FF3434
+		.van-tag
+			margin-right 5px
+		.van-col-woman
+			background-color #FE75B6
+		.padd-let
+			padding: 0px 16px
+			margin 5px 0px 10px 0px
+		.bor-bottom-solid
+			border-bottom  solid 1px #E9EEF6
+			width 90vw
+			height 1px
+			margin-top 20px
+		.spanright5
+			margin-right 5px
+		.btnW50
+			width 45vw
+			float left
+		.color-rel
+			background-color #F7D347
+			border 1px solid #F7D347
+			margin-right 2vw
+		.color-redF
+			background-color #FF4CA0
+			border 1px solid #FF4CA0
+		.chat-sty
+			width 1em
+			height 1em
+			background url("../../../static/xiaoxi.png") center no-repeat
+			background-size 100%
+			position relative
+			top 2px
+			left -3px
+		.like-sty
+			width 1.2em
+			height 1.2em
+			background url("../../../static/guanzhu.png") center no-repeat
+			background-size 100%
+			position relative
+			top 3px
+			left -3px
 		.video-warp
 			width: 100%;
 			margin: auto;
 			text-align: center;
-			
 			i.bofang
 				display inline-block
 				width 5em
@@ -229,7 +391,6 @@
 				left 50%
 				transform translate(-50%,-50%)
 				z-index 999
-				
 		video
 			width 100%
 		.controls
