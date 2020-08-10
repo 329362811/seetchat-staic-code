@@ -1,18 +1,15 @@
 <template>
     <!--个人资料页面-->
-    <div class="container">
+    <div class="personalData">
         <van-sticky>
-            <div class="head">
-                <van-row>
-                    <van-col span="9" class="tuPiao"><van-icon  @click="fanHui" size="20" name="arrow-left" /></van-col>
-                    <van-col span="8">编辑资料</van-col>
-                </van-row>
-            </div>
-        </van-sticky>   
+            <van-nav-bar style="height:50px">  
+                <template #title><span style="font-size:18px">编辑资料</span></template>
+                <template #left><van-icon name="arrow-left"  size="20" color="#000000" @click="fanHui"/></template>
+            </van-nav-bar>
+        </van-sticky>
         <!--@submit="onSubmit"-->
         <van-form >
-            <van-cell class="touLie" label="上传视频跟吸引他人关注你" >
-                <!-- 使用 title 插槽来自定义标题 -->
+            <van-cell class="touLie" label="上传视频跟吸引他人关注你">
                 <template #title>
                     <span class="custom-title"  style="margin-right:25px">封面/视频</span>
                     <van-uploader  :after-read="afterRead" preview-size="40px" :max-count="4"  v-model="myData.fenVideo">
@@ -21,6 +18,16 @@
                     </van-uploader>
                 </template>
             </van-cell>
+
+            <!--<div role="button" tabindex="0" class="van-cell van-cell--clickable">
+                <div class="van-cell__title">
+                    <span>单元格</span>
+                </div>
+                <div class="van-cell__value">
+                    <span>上传视频跟吸引他人关注你</span>
+                </div>
+                <i class="van-icon van-icon-arrow van-cell__right-icon"></i>
+            </div>-->
 
             <van-field  v-model="myData.geXInQIanMing" class="touLie" rows="2" autosize label="个新签名" type="textarea"  
                 maxlength="30" placeholder="展示我的态度30字以内"  show-word-limit/>
@@ -77,18 +84,15 @@
             </van-row>
         </van-form>
 
-
-
+        
         <!-- 标签弹出框 -->
         <van-popup v-model="biaoQianshow" close-icon-position="top-left" position="bottom" :style="{ height: '100%' }">
             <van-sticky>
-                <div class="head">
-                    <van-row>
-                        <van-col span="9" class="tuPiao"><van-icon  @click="biaoQianGuanBi" size="20" name="arrow-left" /></van-col>
-                        <van-col span="8">我的标签</van-col>
-                    </van-row>
-                </div>
-            </van-sticky>   
+                <van-nav-bar style="height:50px">  
+                    <template #title><span style="font-size:18px">我的标签</span></template>
+                    <template #left><van-icon name="arrow-left"  size="20" color="#000000" @click="biaoQianGuanBi"/></template>
+                </van-nav-bar>
+            </van-sticky>
              <van-checkbox-group v-model="myData.biaoQianResult">
 
                 <van-cell-group>
@@ -215,22 +219,22 @@
         }
     }
 </script>
+<<style>
+.personalData .van-uploader {
+    width:66vw;
+}
+/*.personalData .van-uploader__input-wrapper {
+    position: absolute;
+    right: 0px;
+}*/
+
+</style>
 
 <style lang="stylus" scoped>
-    .container
+    .personalData
         height:667px
         width:100vw
         background-color:#F9F9FB
-
-        .head
-            padding-left: 15px;
-            padding-top:20px
-            background-color:white
-            font-size:18px
-            height:36px;
-            width:100vw
-            .tuPiao
-                margin-top:3px
         .dateDiv
             margin:10px 15px 10px 15px
             color:#C1C1C1

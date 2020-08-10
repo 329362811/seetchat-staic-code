@@ -12,6 +12,15 @@ export default new Router({
         redirect: { name: 'index' }
       },
 
+      //登录
+      {
+        name: 'register',
+        path: '/register',
+        component:  () => import('@/pages/register'),
+        meta: {
+         title: '登录'
+        },
+      },
       //主页
       {
         name: 'index',

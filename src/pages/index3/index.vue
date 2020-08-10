@@ -1,14 +1,12 @@
 <template>
     <!--发布需求页面-->
-    <div class="container">
+    <div class="postHeadBar">
         <van-sticky>
-            <div class="head">
-                <van-row>
-                    <van-col span="9" class="tuPiao"><van-icon  @click="fanHui" size="20" name="arrow-left" /></van-col>
-                    <van-col span="8">发布需求</van-col>
-                </van-row>
-            </div>
-        </van-sticky>   
+            <van-nav-bar style="height:50px">  
+                <template #title><span style="font-size:18px">发布需求</span></template>
+                <template #left><van-icon name="arrow-left"  size="20" color="#000000" @click="fanHui"/></template>
+            </van-nav-bar>
+        </van-sticky>
         <!--@submit="onSubmit"-->
         <van-form >
             
@@ -85,13 +83,11 @@
         <!--聊天方式弹出框-->
         <van-popup v-model="fangShiShow" close-icon-position="top-left" position="bottom" :style="{ height: '50%' }">
             <van-sticky>
-                <div class="head">
-                    <van-row>
-                        <van-col span="9" class="tuPiao"><van-icon  @click="FangShiGuanBi" size="20" name="arrow-left" /></van-col>
-                        <van-col span="8">聊天方式</van-col>
-                    </van-row>
-                </div>
-            </van-sticky>   
+                <van-nav-bar style="height:50px">  
+                    <template #title><span style="font-size:18px">聊天方式</span></template>
+                    <template #left><van-icon name="arrow-left"  size="20" color="#000000" @click="FangShiGuanBi"/></template>
+                </van-nav-bar>
+            </van-sticky>
             <van-radio-group v-model="pdemandData.pFangShi">
                 <van-cell-group v-for="item in listFangShiLie">
                     <van-cell :title="item.value" clickable >
@@ -104,15 +100,13 @@
         </van-popup>
 
         <!-- 标签弹出框 -->
-        <van-popup v-model="biaoQianshow" close-icon-position="top-left" position="bottom" :style="{ height: '100%' }">
+        <van-popup v-model="biaoQianshow" close-icon-position="top-left" position="bottom" :style="{ height: '100%' }">   
             <van-sticky>
-                <div class="head">
-                    <van-row>
-                        <van-col span="9" class="tuPiao"><van-icon  @click="biaoQianGuanBi" size="20" name="arrow-left" /></van-col>
-                        <van-col span="8">我的标签</van-col>
-                    </van-row>
-                </div>
-            </van-sticky>   
+                <van-nav-bar style="height:50px">  
+                    <template #title><span style="font-size:18px">我的标签</span></template>
+                    <template #left><van-icon name="arrow-left"  size="20" color="#000000" @click="biaoQianGuanBi"/></template>
+                </van-nav-bar>
+            </van-sticky>
              <van-checkbox-group v-model="pdemandData.pBiaoQianResult">
 
                 <van-cell-group>
@@ -325,20 +319,13 @@
 </script>
 
 <style lang="stylus" scoped>
-    .container
+    .postHeadBar
         height:667px
         width:100vw
         background-color:#F9F9FB
-
-        .head
-            padding-left: 15px;
-            padding-top:20px
-            background-color:white
-            font-size:18px
-            height:36px;
-            width:100vw
-            .tuPiao
-                margin-top:3px
+        .headBar
+            font-size:38px
+            color:#000000
         .touLie
             padding-top:10px
             padding-bottom:10px

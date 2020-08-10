@@ -1,12 +1,12 @@
 <template>
     <!--我的需求页面'-->
-    <div class="container">
-        <div class="head">
-            <van-row>
-                <van-col span="9" class="tuPiao"><van-icon  @click="fanHui" size="20" name="arrow-left" /></van-col>
-                <van-col span="8">我的需求</van-col>
-            </van-row>
-        </div>
+    <div class="myNeed">
+        <van-sticky>
+            <van-nav-bar style="height:50px">  
+                <template #title><span style="font-size:18px">我的需求</span></template>
+                <template #left><van-icon name="arrow-left"  size="20" color="#000000" @click="fanHui"/></template>
+            </van-nav-bar>
+        </van-sticky>
         <div class="xuQiuKa">
             <div class="xuQiuTile">刚失恋，聊点开心的</div>
             <div class="timeLie">
@@ -83,19 +83,10 @@
 </script>
 
 <style lang="stylus" scoped>
-    .container
+    .myNeed
         height:667px
         width:100vw
         background-color:#F9F9FB
-        .head
-            padding-left: 15px;
-            padding-top:20px
-            background-color:white
-            font-size:18px
-            height:36px;
-            width:100vw
-            .tuPiao
-                margin-top:3px
         .xuQiuKa
             width:auto
             height:110px

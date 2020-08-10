@@ -1,12 +1,12 @@
 <template>
     <!--发布需求成功页面-->
-    <div class="container">
+    <div class="releaseSuccess">
         <div id="head">
             <van-icon @click="cancelBut" id="headIcon" name="cross" />
         </div>
         <div id="succeedKuang">
             <div>
-                <van-image class="succeedImg" width="90" height="90" :src="require('../../assets/images/成功_slices/成功@2x.png')" />
+                <van-image class="succeedImg" width="90" height="90" :src="require('../../../static/succeed.png')" />
             </div>
             <span class="succeedTxt">您的需求已经发布成功～</span>
         </div>
@@ -14,6 +14,12 @@
             <van-button  @click="releasedBut" class="tiJiaoBut" round block native-type="submit">分享微信/朋友圈</van-button>
             <a @click="closeBut" class="succeedButTxt">关闭回到首页</a>
         </div>
+
+        
+        <!-- 努力加载弹出框 -->
+        <van-popup v-model="loadingShow" class="loadingPopShow" :overlay="false">
+            <van-loading class="loadingPopup" size="30px" type="spinner"  vertical>努力生成中...</van-loading>
+        </van-popup>
 
         <van-popup class="popup-div" round close-on-click-overlay="false" closeable="true" v-model="showPopup">
             <van-image class="vanImg"  fit="contain" :src="require('../../../static/wxBg.png')" />
@@ -39,6 +45,7 @@
         //基础数据存放处
         data (){
             return {
+                loadingShow:false,  
                 showPopup:false,
 
             }
@@ -64,6 +71,11 @@
                this.$router.push("/index");
            },
            releasedBut(){
+               this.loadingShow = true;
+               setTimeout(this.loadingAccomplish, 1000);
+           },
+           loadingAccomplish(){
+               this.loadingShow = false;
                this.showPopup = true;
            }
         },
@@ -81,7 +93,7 @@
 </script>
 
 <style lang="stylus" scoped>
-    .container
+    .releaseSuccess
         height:667px
         width:100vw
         background-color:#F9F9FB
@@ -114,6 +126,16 @@
         .succeedButTxt
             height:18px
             font-size:17px
+        .loadingPopShow
+            width:100px
+            height:100px
+            border-radius:10px
+            opacity:90%;
+            background-color:#000000
+            .loadingPopup
+                font-size:14px
+                color:white
+                margin-top:23px
         .popup-div
             width 80vw
             .vanImg

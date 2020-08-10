@@ -1,6 +1,6 @@
 <template>
     <!--个人中心页面'-->
-    <div class="container">
+    <div class="index5">
         <div class="woDe">
             我的个人中心
         </div>
@@ -38,13 +38,13 @@
         <div class="gongNengKa">
             <a href="#" @click="xuQiuBut"> 
                 <van-row class="gongNengLan" gutter="24">
-                    <div class="gongNengLanLeft"><van-icon name="wap-nav" size="28" color="#1DE7A7" /></div>
+                    <div class="gongNengLanLeft"><van-image width="31" height="30" :src="require('../../../static/myNeed.png')" /></div>
                     <div class="gongNengLanRight">我的需求</div>
                 </van-row>
             </a> 
             <a href="#"  @click="keFuBut"> 
                 <van-row class="gongNengLan" gutter="24">
-                    <div class="gongNengLanLeft"><van-icon name="wap-nav" size="28" color="#1DE7A7" /></div>
+                    <div class="gongNengLanLeft"><van-image width="31" height="30" :src="require('../../../static/customerService.png')" /></div>
                     <div class="gongNengLanRight">客服咨询 09:00-22:00</div>
                 </van-row>
             </a> 
@@ -137,7 +137,7 @@
 </script>
 
 <style lang="stylus" scoped>
-    .container
+    .index5
         padding:0px 15px;
         .woDe
             height:60px
@@ -212,12 +212,9 @@
                 margin-top:15px
                 .gongNengLanLeft
                     float:left
-                    width:30px
-                    height:26px
-                    border:1px dotted
                 .gongNengLanRight
                     float:left
                     padding-top:3px
                     color:#000000
-                    margin-left:20px
+                    margin-left:14px
 </style>

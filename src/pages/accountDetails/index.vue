@@ -1,12 +1,12 @@
 <template>
     <!--账户明细页面-->
-    <div class="container">
-        <div class="head">
-            <van-row>
-                <van-col span="9" class="tuPiao"><van-icon  @click="fanHui" size="20" name="arrow-left" /></van-col>
-                <van-col span="8">账户明细</van-col>
-            </van-row>
-        </div>
+    <div class="accountDetails">
+        <van-sticky>
+            <van-nav-bar style="height:50px">  
+                <template #title><span style="font-size:18px">账户明细</span></template>
+                <template #left><van-icon name="arrow-left"  size="20" color="#000000" @click="fanHui"/></template>
+            </van-nav-bar>
+        </van-sticky>
         <div class="dateDiv">2020-06-21</div>
         <van-cell-group>
             <van-cell title="提现" value="-200.00" />
@@ -74,7 +74,7 @@
 </script>
 
 <style lang="stylus" scoped>
-    .container
+    .accountDetails
         height:667px
         width:100vw
         background-color:#F9F9FB
