@@ -100,6 +100,14 @@ export default new Router({
         }
       },
       {
+        name: 'searchIndex',
+        path: '/searchIndex',
+        component: () => import('@/pages/searchIndex'),
+        meta: {
+          title:'搜索'
+        }
+      },
+      {
         name: 'personalData',
         path: '/personalData',
         component:  () => import('@/pages/personalData'),

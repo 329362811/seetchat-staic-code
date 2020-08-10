@@ -15,6 +15,7 @@
             <a @click="closeBut" class="succeedButTxt">关闭回到首页</a>
         </div>
 
+<<<<<<< HEAD
         
         <!-- 努力加载弹出框 -->
         <van-popup v-model="loadingShow" class="loadingPopShow" :overlay="false">
@@ -22,6 +23,9 @@
         </van-popup>
 
         <van-popup class="popup-div" round close-on-click-overlay="false" closeable="true" v-model="showPopup">
+=======
+        <van-popup class="popup-div" round closeable v-model="showPopup">
+>>>>>>> d87e9cc42f792f37296730be79100af4db6a7199
             <van-image class="vanImg"  fit="contain" :src="require('../../../static/wxBg.png')" />
             <div class="fenxian-title">
                 <h3>如何与心仪的妹子聊天提升好感度</h3>
@@ -29,6 +33,20 @@
             </div>
             <div class="fenxian-title-right">
                 <van-image width="80px" height="100px" fit="contain" :src="require('../../../static/erweima.png')" />
+            </div>
+            <div class="vanImg-div">
+                <van-image class="fenxian-icon" :src="require('../../../static/wx.png')" />
+                <div class="spanTitle">微信</div>
+            </div>
+            
+            <div class="vanImg-div">
+                <van-image class="fenxian-icon" :src="require('../../../static/pyq.png')" />
+                <div class="spanTitle">朋友圈</div>
+            </div>
+            
+            <div class="vanImg-div">
+                <van-image class="fenxian-icon" :src="require('../../../static/xz.png')" />
+                <div class="spanTitle">下载</div>
             </div>
         </van-popup>
     </div>
@@ -91,7 +109,17 @@
         }
     }
 </script>
+<style>
+.popup-div .van-popup__close-icon{
+    top:-30px;
+    right:-20px;
+}
 
+.popup-div .vanImg img{
+    border-top-left-radius:20px;
+    border-top-right-radius:20px;
+}
+</style>
 <style lang="stylus" scoped>
     .releaseSuccess
         height:667px
@@ -138,8 +166,11 @@
                 margin-top:23px
         .popup-div
             width 80vw
+            overflow: initial
             .vanImg
                 width 80vw
+                border-top-left-radius 20px
+                border-top-right-radius 20px
             .fenxian-title
                 float left
                 width 50vw
@@ -153,4 +184,15 @@
                 float right
                 width 25vw
                 height 130px
+            .vanImg-div
+                width 26vw
+                float left
+                text-align center
+                margin-bottom 30px
+                .spanTitle
+                    width 26vw
+                .fenxian-icon
+                    width 48px
+                    margin 0 auto
+                
 </style>

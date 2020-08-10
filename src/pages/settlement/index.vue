@@ -14,7 +14,7 @@
         </div>
         <div class="btn-div">
             <van-button @click="openPwdfunc" class="btn-ljgm" round type="primary" size="large">立即购买</van-button>
-            <div class="btn-next-title">购买即视为同意<span class="btn-next-span">《找我聊用户协议》</span></div>
+            <div class="btn-next-title">购买即视为同意<span @click="goSettlementAgreement" class="btn-next-span">《找我聊用户协议》</span></div>
         </div>
 
         <van-dialog class="van-dialog-div" v-model="showModel" title="请输入支付密码" confirmButtonText="">
@@ -88,11 +88,13 @@
         methods : {
             //返回上一页
             onClickLeft:function(){
-                this.$router.go(-1);
+                //this.$router.go(-1);
+                
+                 this.$router.push("/index");
             },
             //发布
-            releasedBut: function(){
-                 this.$router.push("/releaseSuccess");
+            goSettlementAgreement: function(){
+                 this.$router.push("/settlementAgreement");
             },
             openPwdfunc(){
                 this.showModel = !this.showModel

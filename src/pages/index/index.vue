@@ -6,7 +6,7 @@
 		<van-nav-bar :title='title' fixed />
 
 		<div class="content" >
-			<van-icon class="search-icon" name="search" />
+			<van-icon class="search-icon" name="search" @click="searchFunc" />
 			<van-tabs class="vanTabs" line-width="10px" color="#000000" v-model="active" animated>
 				<van-tab title="最新求聊">最新求聊</van-tab>
 				<van-tab class="tabs-2" title="人气榜单">
@@ -148,6 +148,9 @@
 			closeNotice:function(){
 				this.isShowNoticeBar = false
 			},
+			searchFunc(){
+				this.$router.push("/searchIndex")
+			}
 		},
 
 		//计算属性
@@ -179,6 +182,7 @@
     width: 20vw;
 	text-align: right;
     line-height: 45px;
+	z-index: 99;
 }
 </style>
 <style lang="stylus" scoped>

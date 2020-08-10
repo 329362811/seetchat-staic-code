@@ -1,16 +1,16 @@
 <template>
-    <van-tabbar v-model="active">
+    <van-tabbar class="vanTabbar" v-model="active">
     <van-tabbar-item
        v-for="(icon ,index) in iconList" :key='index'
        replace
        :to="icon.route"
        >
-        <span >{{icon.name}}</span><!-- v-show="index!=0" -->
+        <span v-show="index!=2">{{icon.name}}</span><!-- v-show="index!=0" -->
         <img
         slot="icon"
         slot-scope="props"
         :src="props.active ? icon.active : icon.normal"
-        :class="[index==0 ? 'big' : '']"
+        :class="[index==2 ? 'big' : '']"
         >
     </van-tabbar-item>
     </van-tabbar>
@@ -18,15 +18,16 @@
 
 <script>
 
-import icon1 from '../../../static/index.png'
-import icon2 from '../../../static/2.png'
-import icon2_1 from '../../../static/2-1.png'
-import icon3 from '../../../static/3.png'
-import icon3_1 from '../../../static/3-1.png'
-import icon4 from '../../../static/4.png'
-import icon4_1 from '../../../static/4-1.png'
-import icon5 from '../../../static/5.png'
-import icon5_1 from '../../../static/5-1.png'
+import icon1 from '../../../static/shouye.png'
+import icon1_1 from '../../../static/shouye_hover.png'
+import icon2 from '../../../static/guanzhu_index.png'
+import icon2_1 from '../../../static/guanzhu_index_hover.png'
+import icon3 from '../../../static/fabuxuqiu.png'
+import icon3_1 from '../../../static/fabuxuqiu.png'
+import icon4 from '../../../static/xiaoxi_index.png'
+import icon4_1 from '../../../static/xiaoxi_index_hover.png'
+import icon5 from '../../../static/wode.png'
+import icon5_1 from '../../../static/wode_hover.png'
 
 
  export default {
@@ -39,7 +40,7 @@ import icon5_1 from '../../../static/5-1.png'
       iconList : [
         {
         normal: icon1,
-        active: icon1,
+        active: icon1_1,
         name : '首页',
         route : '/index'
         },
@@ -59,7 +60,7 @@ import icon5_1 from '../../../static/5-1.png'
         normal: icon4,
         active: icon4_1,
         name : '消息',
-        route : '/index4'
+        route : '/settlement',//'/index4'
         },
         {
         normal: icon5,
@@ -97,8 +98,14 @@ import icon5_1 from '../../../static/5-1.png'
 
 <style lang="scss" scoped>
 // scoped 表示私有样式
-  /* img.big{
-    width: 32px;
-    height: 32px;
-  } */
+  .vanTabbar img{
+    height: 25px;
+  }
+  .vanTabbar img.big{
+    width: 72px;
+    height: 72px;
+    position:relative;
+    top: -15px;
+  }
+  
 </style>
