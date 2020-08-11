@@ -15,17 +15,13 @@
             <a @click="closeBut" class="succeedButTxt">关闭回到首页</a>
         </div>
 
-<<<<<<< HEAD
         
         <!-- 努力加载弹出框 -->
         <van-popup v-model="loadingShow" class="loadingPopShow" :overlay="false">
             <van-loading class="loadingPopup" size="30px" type="spinner"  vertical>努力生成中...</van-loading>
         </van-popup>
 
-        <van-popup class="popup-div" round close-on-click-overlay="false" closeable="true" v-model="showPopup">
-=======
         <van-popup class="popup-div" round closeable v-model="showPopup">
->>>>>>> d87e9cc42f792f37296730be79100af4db6a7199
             <van-image class="vanImg"  fit="contain" :src="require('../../../static/wxBg.png')" />
             <div class="fenxian-title">
                 <h3>如何与心仪的妹子聊天提升好感度</h3>
