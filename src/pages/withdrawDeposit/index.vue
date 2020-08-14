@@ -23,9 +23,9 @@
                 <div>可提现￥570</div>
             </div>
             <div style="margin: 16px;"> 
-                <van-button class="tiJiaoBut" round block type="info" native-type="submit">
+                <button class="tiJiaoBut">
                     提交
-                </van-button>
+                </button>
             </div>
         </van-form>
         
@@ -115,6 +115,10 @@
                 margin-bottom:10px
                 border-bottom:2px solid #F9F9FB
         .tiJiaoBut 
+            width:95%
+            height:44px
+            border-radius:21px
+            color:#ffffff
             border:0px solid
             background: -webkit-gradient(linear, left top, right bottom, color-stop(10%,#1DE7A7), color-stop(80%,#22D3F5))
 

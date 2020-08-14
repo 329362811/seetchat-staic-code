@@ -55,6 +55,10 @@
 
         <TabBar/>
 
+        <van-dialog v-model="serviceShow" title="确定拨打电话" confirmButtonText="拨打" cancelButtonText="取消" 
+            confirmButtonColor="#1DE7A7" @confirm="confirmBut" message-align="center" show-cancel-button>
+            <span></span>400-8161-666
+        </van-dialog>
     </div>
 
 </template>
@@ -70,7 +74,7 @@
         //基础数据存放处
         data (){
             return {
-               
+               serviceShow: false,
                
             }
         },
@@ -105,19 +109,13 @@
             },
             //客服咨询是否拨打电话
             keFuBut: function(){
-                Dialog.confirm(
-                    {
-                        title: '确定拨打电话',
-                        message: '400-8161-666',
-                        confirmButtonText: '拨打',
-                        cancelButtonText: "取消",
-                        confirmButtonColor: "#1DE7A7",
-                    }).then(() => {
-                        //alert("确定")
-                    }).catch(() => {
-                        //alert("取消")
-                    }
-                );
+                 this.serviceShow=true;
+                
+            },
+            //弹窗确认按钮
+            confirmBut: function(){
+                 alert()
+                
             }
             
            

@@ -16,6 +16,7 @@
             <div class="moneyLie">
                 <span class="xuQiuMoney">￥600</span>
                 <span><van-button plain round type="primary" color="#4CD4D2" class="xuQiuDel">删除</van-button></span>
+                
             </div>
         </div>
         <div class="xuQiuKa">
@@ -29,12 +30,23 @@
                 <span><van-button plain round type="primary" color="#4CD4D2" class="xuQiuDel">删除</van-button></span>
             </div>
         </div>
+        <!--<button type="button" class="htmlBut">删除</button>-->
 
 
     </div>
 
 </template>
-
+<style>
+.htmlBut{
+    width:70px;
+    height:34px;
+    border-radius:23px;
+    border:1px solid #4CD4D2;
+    color:#4CD4D2;
+    background-color: #ffffff;
+    font-size: 14px;
+}
+</style>
 <script>
 
     //引入组件首字母大写
