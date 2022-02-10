@@ -42,7 +42,7 @@
     "cross-spawn": "^5.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "node-sass": "^4.5.3",
+    "node-sass": "^7.0.0",
     "sass-loader": "^6.0.6",
     "vue-template-compiler": "^2.6.10"
   },
